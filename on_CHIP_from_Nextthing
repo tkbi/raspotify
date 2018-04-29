@@ -1,0 +1,52 @@
+Additional description on, how to get Raspotiy running on the C.H.I.P from nexctthing, which is
+a very small computer /  IoT,  like Rasberry PI, but just for 9,00$ quick (from https://getchip.com/) :-)
+
+
+
+First of all, I have to say many thanks to ctcooper, he did a real good job for the raspberry PI, so we can 
+use it like a fork from the github side:
+
+    https://github.com/dtcooper/raspotify
+
+Take care to follow the instruction in that following way, it did works for me successfully!
+
+
+First add the key.asc from github/ctcooper, don't start the install script from this side, it's
+working only for Raspberry PI
+
+But because we have DEBIAN Jessie on C.H.I.P running, we can use a part of it !
+
+    wget https://dtcooper.github.io/raspotify/key.asc
+
+than add the key of the repository from ctcooper to your apt
+    sudo apt-key add key.asc
+
+Next step is to generate the raspotify.list file in the sources.list.d of apt.
+
+Add a new list to your apt sources
+
+    md /etc/apt/sources.list.d/raspotify.list
+    sudo nano raspotify.list
+
+and put in that file the followed entry, just one line :-)
+
+    deb https://dtcooper.github.io/raspotify jessie main
+
+that's it's, so far, the preparing.
+
+Now just run 
+    sudo apt-get update
+
+and next
+    sudo apt-get update
+    sudo apt-get install apt-transport-https lsb-release
+    sudo apt-get -y install raspotify
+
+restart is not needed, just wait a minute or so, and take a look at your smartphone, running spotify
+as you may know in the APP for Spotify, it is possible to connect to any running client (raspotify, snapclient etc.) 
+and you can connect to enjoy your music in every room, where you have a CHIP running and connected with the 3,5 mm jack to your
+HiFi-equipment, or just a JBL box :-)
+
+
+
+
